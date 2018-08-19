@@ -4,7 +4,7 @@ D: Joe Donnelly - JoeforIndiana, SenDonnelly
 R: Mike Braun - braun4indiana
 
 Nevada (Jae)
-R: Dean Heller - SenDeanHeller
+R: Dean Heller - SenDeanHeller, DeanHeller
 D: Jacky Rosen - RosenforNevada , RepJackyRosen
 
 North Dakota (Edgar)
