@@ -1,11 +1,17 @@
 import csv
 
 # add twitter account id here
-republican_list = ['braun4indiana', 'SenDeanHeller', 'RepKevinCramer', 
-                    'kevincramer', 'MorriseyWV', 'itspatmorrisey']
-democrat_list = ['JoeforIndiana', 'SenDonnelly', 'RosenforNevada',
-                    'RepJackyRosen', 'SenatorHeitkamp', 'JoeManchinWV',
-                    'Sen_JoeManchin', 'HeidiHeitkamp']
+republican_list = ['braun4indiana', 'SenDeanHeller', 'DeanHeller',
+                    'RepKevinCramer', 'kevincramer', 'MorriseyWV',
+                    'itspatmorrisey', 'HawleyMO', 'AGJoshHawley',
+                    'marshablackburn', 'VoteMarsha', 'RepMcSally',
+                    'MarthaMcSally', 'FLGovScott', 'scottforflorida']
+
+democrat_list = ['JoeforIndiana', 'SenDonnelly', 'RosenforNevada', 
+                    'RepJackyRosen', 'SenatorHeitkamp', 'HeidiHeitkamp',
+                    'JoeManchinWV', 'Sen_JoeManchin', 'clairecmc', 
+                    'McCaskillOffice', 'PhilBredesen', 'kyrstensinema', 
+                    'RepSinema', 'SenBillNelson', 'nelsonforsenate']
 
 def load_data_from_csv(file_name):
     """
@@ -18,10 +24,12 @@ def load_data_from_csv(file_name):
         next(reader)
         data = [r for r in reader]
     labeled_data = []
+    label = label_tweet_by_file(file_name)
+    csv_file_name = file_name.split('csv_files\\')
+    screen_name = csv_file_name[0].split('_tweets.csv')
     for i in range(len(data)):
         tweet_text = data[i][2].lstrip("b'").rstrip("'").lower()
-        label = label_tweet_by_file(file_name)
-        labeled_data.append((tweet_text, label))
+        labeled_data.append((tweet_text, screen_name[0], label))
     return labeled_data
 
 def label_tweet_by_file(file_name):
